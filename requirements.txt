@@ -1,0 +1,8 @@
+streamlit
+cohere
+python-dotenv
+faiss-cpu
+numpy
+rocksdict
+packaging
+tqdm
