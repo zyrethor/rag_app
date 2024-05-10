@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 class BinaryVectorDB:
 
-    def __init__(self, folder, model="embed-multilingual-v3.0", index_type=faiss.IndexBinaryFlat, index_args=[1024], rdict_options=None):
+    def __init__(self, folder, api_key, model="embed-multilingual-v3.0", index_type=faiss.IndexBinaryFlat, index_args=[1024], rdict_options=None):
         """
         Initialize a BinaryVectorDB object.
 
@@ -34,10 +34,11 @@ class BinaryVectorDB:
             Exception: If the specified folder contains files but no config.json.
         """
 
-        if 'COHERE_API_KEY' not in os.environ:
-            raise Exception("Please set the COHERE_API_KEY environment variable to your Cohere API key.")
+        # if 'COHERE_API_KEY' not in os.environ:
+        #     raise Exception("Please set the COHERE_API_KEY environment variable to your Cohere API key.")
 
-        self.co = cohere.Client(os.environ['COHERE_API_KEY'])
+        # self.co = cohere.Client(os.environ['COHERE_API_KEY'])
+        self.co = cohere.Client(api_key)
 
         config_path = os.path.join(folder, "config.json")
         if not os.path.exists(config_path):

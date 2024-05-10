@@ -34,7 +34,7 @@ with st.sidebar:
 co = cohere.Client(api_key=COHERE_API_KEY)
 
 db_folder = "python_docs_db"
-db = BinaryVectorDB(db_folder)
+db = BinaryVectorDB(folder=db_folder, api_key=COHERE_API_KEY)
 
 
 st.title("Python documentation Chatbot")
