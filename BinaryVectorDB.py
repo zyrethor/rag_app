@@ -262,3 +262,5 @@ class BinaryVectorDB:
         """
         return self.index.ntotal
 
+    def __del__(self):
+        self.doc_db.close()
